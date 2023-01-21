@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Publisher/Publisher.csproj",
+                "${workspaceFolder}/task-master-api/task-master-api.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/Publisher/Publisher.csproj",
+                "${workspaceFolder}/task-master-api/task-master-api.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/Publisher/Publisher.csproj"
+                "${workspaceFolder}/task-master-api/task-master-api.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
