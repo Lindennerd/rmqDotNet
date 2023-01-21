@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using RmqLib.@interface;
 
 namespace task_master_api.Exchanges

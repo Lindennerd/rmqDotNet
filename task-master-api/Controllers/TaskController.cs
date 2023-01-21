@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using RmqLib;
 using RmqLib.@interface;
 using task_master_api.Exchanges;
 using task_master_api.Models.Task;
@@ -12,7 +13,7 @@ namespace task_master_api.Controllers
     {
         private readonly IQueuePublisher<TaskQueue, DefaultExchange> _queuePublisher;
 
-        public TaskController(IQueuePublisher<TaskQueue, DefaultExchange> queuePublisher)
+        public TaskController(QueuePublisherService<TaskQueue, DefaultExchange> queuePublisher)
         {
             _queuePublisher = queuePublisher;
         }
@@ -20,7 +21,7 @@ namespace task_master_api.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            this._queuePublisher.Publish(new NewTaskModel
+            this._queuePublisher.EventPublish(new NewTaskModel
             {
                 Title = "Test Task",
                 Description = "This is a test task",

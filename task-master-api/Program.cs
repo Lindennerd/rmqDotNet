@@ -10,8 +10,8 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 builder.Services.AddSingleton<IQueueConnection>(_ => new QueueConnectionService("amqp://guest:guest@localhost:5672"));
-builder.Services.AddScoped(s => (IQueuePublisher<TaskQueue, DefaultExchange>)(QueuePublisherService<IQueue, IExchange>)(new(s.GetRequiredService<IQueueConnection>(), new TaskQueue(), new DefaultExchange())));
-builder.Services.AddScoped(s => (IQueuePublisher<ReportsQueue, DefaultExchange>)(QueuePublisherService<IQueue, IExchange>)(new(s.GetRequiredService<IQueueConnection>(), new ReportsQueue(), new DefaultExchange())));
+builder.Services.AddScoped(s => new QueuePublisherService<TaskQueue, DefaultExchange>(s.GetRequiredService<IQueueConnection>(), new TaskQueue(), new DefaultExchange()));
+builder.Services.AddScoped(s => new QueuePublisherService<ReportsQueue, DefaultExchange>(s.GetRequiredService<IQueueConnection>(), new ReportsQueue(), new DefaultExchange()));
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

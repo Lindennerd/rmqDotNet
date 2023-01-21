@@ -2,6 +2,7 @@ namespace RmqLib.@interface
 {
     public interface IQueuePublisher<TQueue, TExchange>
     {
-        void Publish<MessageType>(MessageType message, string routingKey = "") where MessageType : IMessage;
+        void EventPublish<MessageType>(MessageType message, string routingKey = "") where MessageType : IMessage;
+        void MessagePublish<MessageType>(MessageType message, string routingKey = "") where MessageType : IMessage;
     }
 }
