@@ -40,7 +40,7 @@ namespace RmqLib
             ReadOnlyMemory<byte> messageBody = new(Encoding.UTF8.GetBytes(messageJson));
 
             _ = _channel.QueueDeclare(queue.Name, queue.Durable, queue.Exclusive, queue.AutoDelete, queue.Arguments);
-            _channel.BasicPublish(exchange is null ? "" : exchange.Name, routingKey, null, messageBody);
+            _channel.BasicPublish(exchange is null ? "" : exchange.Name, queue.Name, null, messageBody);
         }
     }
 }
