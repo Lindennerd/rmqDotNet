@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Publisher", "Publisher\Publisher.csproj", "{C16EC446-E980-4C19-A184-E8ABEDDB0848}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RmqLib", "RmqLib\RmqLib.csproj", "{FC48ECF8-A03F-4F73-A9EF-BDA6B118AE7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "task-master-api", "task-master-api\task-master-api.csproj", "{4DB55CD1-5B2A-49CA-8C98-80159FA44D1B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C16EC446-E980-4C19-A184-E8ABEDDB0848}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C16EC446-E980-4C19-A184-E8ABEDDB0848}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C16EC446-E980-4C19-A184-E8ABEDDB0848}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C16EC446-E980-4C19-A184-E8ABEDDB0848}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC48ECF8-A03F-4F73-A9EF-BDA6B118AE7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC48ECF8-A03F-4F73-A9EF-BDA6B118AE7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC48ECF8-A03F-4F73-A9EF-BDA6B118AE7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC48ECF8-A03F-4F73-A9EF-BDA6B118AE7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DB55CD1-5B2A-49CA-8C98-80159FA44D1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DB55CD1-5B2A-49CA-8C98-80159FA44D1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DB55CD1-5B2A-49CA-8C98-80159FA44D1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DB55CD1-5B2A-49CA-8C98-80159FA44D1B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
