@@ -19,14 +19,16 @@ namespace RmqLib
                 throw new ArgumentNullException(nameof(queue));
             }
 
-            if (exchange != null)
-            {
-                this.exchange = exchange;
-            }
-
             _connection = connection;
             this.queue = queue;
             _channel = _connection.Connection.CreateModel();
+
+            if (exchange != null)
+            {
+                this.exchange = exchange;
+                _channel.ExchangeDeclare(exchange.Name, exchange.Type, exchange.Durable, exchange.AutoDelete, exchange.Arguments);
+            }
+            _ = _channel.QueueDeclare(queue.Name, queue.Durable, queue.Exclusive, queue.AutoDelete, queue.Arguments);
         }
 
         public object? GetService(Type serviceType)
@@ -36,17 +38,23 @@ namespace RmqLib
 
         public void EventPublish<MessageType>(MessageType message, string routingKey = "") where MessageType : IMessage
         {
-            _ = _channel.QueueDeclare(queue.Name, queue.Durable, queue.Exclusive, queue.AutoDelete, queue.Arguments);
-            _channel.BasicPublish(exchange is null ? "" : exchange.Name, queue.Name, null, EncodeMessage(message));
+            _channel.BasicPublish(
+                exchange is null ? "" : exchange.Name,
+                string.IsNullOrEmpty(routingKey) ? queue.Name : routingKey,
+                null,
+                EncodeMessage(message));
         }
 
         public void MessagePublish<MessageType>(MessageType message, string routingKey = "") where MessageType : IMessage
         {
-            _ = _channel.QueueDeclare(queue.Name, queue.Durable, queue.Exclusive, queue.AutoDelete, queue.Arguments);
             IBasicProperties basicProps = _channel.CreateBasicProperties();
             basicProps.CorrelationId = Guid.NewGuid().ToString();
-            basicProps.ReplyTo = queue.Name;
-            _channel.BasicPublish(exchange is null ? "" : exchange.Name, queue.Name, basicProps, EncodeMessage(message));
+            basicProps.ReplyTo = string.IsNullOrEmpty(routingKey) ? queue.Name : routingKey;
+            _channel.BasicPublish(
+                exchange is null ? "" : exchange.Name,
+                string.IsNullOrEmpty(routingKey) ? queue.Name : routingKey,
+                basicProps,
+                EncodeMessage(message));
         }
 
         private static ReadOnlyMemory<byte> EncodeMessage<MessageType>(MessageType message) where MessageType : IMessage

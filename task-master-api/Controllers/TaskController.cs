@@ -28,7 +28,7 @@ namespace task_master_api.Controllers
                 Status = task_master_domain.task.TaskStatus.InProgress,
                 Priority = task_master_domain.task.Priority.Medium,
                 DueDate = DateTime.Now,
-            });
+            }, "task.new");
             return Ok();
         }
     }
