@@ -1,6 +1,6 @@
 using FluentValidation;
 
-namespace RmqLib
+namespace RmqLib.Config
 {
     internal class RabbitMQConfigValidation : AbstractValidator<RabbitMQConfig>
     {

@@ -1,4 +1,4 @@
-namespace RmqLib
+namespace RmqLib.Config
 {
     public class RabbitMQConfig
     {

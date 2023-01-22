@@ -1,5 +1,6 @@
 using Microsoft.Extensions.Logging;
 using RabbitMQ.Client;
+using RmqLib.Config;
 
 namespace RmqLib
 {
