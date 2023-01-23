@@ -19,6 +19,9 @@ class User
   "name": "user_name",
   "email": "user_email",
   "avatar": "user_avatar",
-  "avatar_url": "user_avatar_url"
+  "avatar_url": "user_avatar_url",
+  "projects": ["project_id1", "project_id2"],
+  "tasks": ["task_id1", "task_id2"],
+  "organizations": "organization_id1"
 }
 ```
